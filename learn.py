@@ -40,7 +40,7 @@ class App(object):
 
     def train(self, doc, y):
         X = self.vector(doc)
-        self.clf.partial_fit(X, [y], classes=(GOOD, BAD))
+        self.clf.partial_fit(X, [y])
 
     def vector(self, doc):
         clean = preprocess(doc)
