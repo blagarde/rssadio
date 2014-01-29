@@ -4,7 +4,7 @@ import numpy as np
 from string import punctuation
 from sklearn.feature_extraction.text import HashingVectorizer
 from sklearn import linear_model
-from feeds import stories
+from sources import stories
 from cPickle import load, dump
 from config import MODEL, GOOD, BAD
 
