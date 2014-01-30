@@ -7,6 +7,8 @@ from sklearn import linear_model
 from sources import stories
 from cPickle import load, dump
 from config import MODEL, GOOD, BAD
+from nltk import clean_html
+from html2text import html2text
 
 
 WHITESPACE_RE = re.compile('\s+', flags=re.UNICODE)
@@ -14,6 +16,8 @@ PUNCTUATION_RE = re.compile('[' + punctuation + '\s]+', flags=re.UNICODE)
 
 
 def preprocess(doc):
+    doc = clean_html(doc)
+    doc = html2text(doc)
     doc = PUNCTUATION_RE.sub(' ', doc)
     return WHITESPACE_RE.sub(' ', doc).strip(' ')
 
